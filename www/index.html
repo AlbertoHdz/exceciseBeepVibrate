@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+       <!-- <script type="text/javascript" src="cordova.js"></script>--> 
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+		<script>
+function cargar(){
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+// Register the event listener
+		
+		alert("puede hacer un beep o vibrar el cel");
+	}
+}
+	function showAlert(){
+		navigator.notification.alert(
+		'un beep Se iniciara!',//message
+		alertbeep,
+		'Vibracion(titulo)',
+		'beep' //nombre boton
+		);
+	}
+	
+	function alertbeep(){
+		
+		playbeep();
+		alert('beep iniciado');
+		//showAlert();
+	}
+	
+	function playbeep(){ //para vibracion
+		navigator.notification.beep(4);
+	}
+	function playvibrate(){
+		navigator.notification.vibrate(4000);
+	}
+
+</script>
+    </head>
+    <body style="background:rgb(110,77,170)" onload=cargar()>
+        <div id="off" class="ui-shadow" style="border-radius: 5px;background:#FFF;color:DarkBlue;margin:auto;margin-top:15%;padding:25px;">
+			<div>
+				Elija alguno que desee
+			</div>
+          <div><input type="button" value="start beep" name="beep" id="beep" onclick="alertbeep()" style="float:left;margin-left:10px;">
+		  <input type="button" value="start vibracion" id="vibracion" style="float:right;margin-right:10px;" onclick="playvibrate();"></div>
+        </div>
+        
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
