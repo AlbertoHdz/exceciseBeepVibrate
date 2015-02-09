@@ -47,10 +47,13 @@ function cargar(){
 	function alertbeep(){
 		
 		playbeep();
-		alert('beep iniciado');
+		alert('beep iniciado. Estara por 4 segundos');
 		//showAlert();
 	}
-	
+	function alertvibrate(){
+		playvibrate();
+		alert("estara el vibrador 4 segundos")
+	}
 	function playbeep(){ //para vibracion
 		navigator.notification.beep(4);
 	}
@@ -66,7 +69,7 @@ function cargar(){
 				Elija alguno que desee
 			</div>
           <div><input type="button" value="start beep" name="beep" id="beep" onclick="alertbeep()" style="float:left;margin-left:10px;">
-		  <input type="button" value="start vibracion" id="vibracion" style="float:right;margin-right:10px;" onclick="playvibrate();"></div>
+		  <input type="button" value="start vibracion" id="vibracion" style="float:left;margin-left:20px;" onclick="alertvibrate()"></div>
         </div>
         
         <script type="text/javascript" src="js/index.js"></script>
